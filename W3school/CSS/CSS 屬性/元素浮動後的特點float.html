@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素浮動後的特點</title>
+    <style>
+        .outer {
+            height: 400px;
+            width: 600px;
+            background-color: gray;
+            padding: 10px;
+        }
+
+        .box {
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .box1 {
+            background-color: aqua;
+        }
+
+        .box2 {
+            background-color: rgba(48, 2, 216, 0.5);
+            float: left;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 10px;
+        }
+
+        .box3 {
+            background-color: rgb(246, 21, 160);
+            float: left;
+             margin-top: -5px;
+
+        }
+
+        div#test {
+            width: 400px;
+            background-color: rgb(160, 214, 245);
+        }
+        div#test::first-letter{
+            font-size: 4em;
+            float: left;
+        }
+        
+
+      img {
+            width: 200px;
+            border: 1px solid red;
+            float: right;
+            margin-right: 10px;
+
+        }
+       
+        
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="box box1">盒子1</div>
+        <div class="box box2">盒子2</div>
+        <div class="box box3">盒子3</div>
+    </div>
+    <hr>
+    <p>文字繞圖 float:left或right</p>
+    <div id="test">
+        <img  src="../../image-3c/smileCat.jpg" alt="similCat">
+       <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati magnam molestiae facilis, velit fugit
+            corrupti ad! Atque, quo veritatis ab illo est voluptas tempora similique corrupti, iusto consequuntur eos id
+            vitae obcaecati animi tempore suscipit laudantium, labore cumque cupiditate doloremque necessitatibus. Quas
+            vel consequuntur odit itaque illo et temporibus aliquam deleniti omnis? Veniam possimus unde autem impedit
+            nihil illum, saepe nostrum aliquid veritatis eius labore ut placeat enim perspiciatis voluptate nisi eum
+            quas reprehenderit officia reiciendis ipsum incidunt? Cupiditate illo vel fuga itaque beatae dolore quisquam
+            illum maxime minus optio sequi autem officia vero repudiandae, consequatur, quis ducimus. Dicta,
+            quibusdam.</span>
+    </div>
+</body>
+
+</html>
