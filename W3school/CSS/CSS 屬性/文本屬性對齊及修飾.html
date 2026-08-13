@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本屬性對齊及修飾</title>
+    <style>
+        h2 {
+            background-color: aquamarine;
+            text-align: center;/*指定文字的水平對齊方式。*/
+           
+        }
+
+        p.ex1 {
+            direction: rtl;/*指定文字的方向。rtl靠右向左*/
+           
+        }
+        p.ex2 {
+            direction: rtl;
+            unicode-bidi: bidi-override;/*與 direction 屬性一起使用,字母的方向也由右向左。*/
+        }
+
+        img.top {
+            vertical-align: top;/*指定文字的垂直對齊方式。*/
+        }
+
+        img.middle {
+            vertical-align: middle;
+        }
+
+        img.bottom {
+            vertical-align: bottom;
+        }
+        p {font-size: 125%;}
+/*注意h3和[不可有空格*/
+h3[class="text-decoration1"] {
+  text-decoration: overline dotted green;/*文字的裝飾效果。劃線在上方*/
+}
+h3[class="text-decoration2"] {
+  text-decoration: line-through red;/*文字的裝飾效果。劃線在中間*/
+}
+
+h3[class="text-decoration3"] {
+  text-decoration: underline wavy blue;/*文字的裝飾效果。劃線在下方*/
+}
+div.usNone>ins{
+    text-decoration: none;
+}
+div.usNone>del{
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+    <h2>标题 1（居中对齐）</h2>
+    <p class="ex1">▶This is right-to-left text direction.</p>
+    <p class="ex2">⇚由右向左書寫←</p>
+
+    <p>一幅 <img src="../../   
+        ../../image-3c/dogStaff.gif" alt="W3School" width="80" height="80"> 默认对齐方式的图像。</p><br>
+    <p>一幅 <img class="top" src="../../   
+        ../../image-3c/dogStaff.gif" alt="W3School" width="80" height="80"> 上对齐的图像。</p><br>
+    <p>一幅 <img class="middle" src="../../
+        ../../image-3c/dogStaff.gif" alt="W3School" width="80" height="80"> 居中对齐的图像。</p><br>
+    <p>一幅 <img class="bottom" src="../../
+        ../../image-3c/dogStaff.gif" alt="W3School" width="80" height="80"> 下对齐的图像。</p>
+
+
+    <h3 class="text-decoration1">上划線 3</h3>
+    <h3 class="text-decoration2">刪除線 3</h3>
+    <h3 class="text-decoration3">下划線 3</h3>
+    <div>
+    <ins>用元素ins插入行線</ins><br>
+    <del>用元素del插入刪除線</del>
+    </div>
+    <div class="usNone">
+    <ins>用none取消插入行線</ins><br>
+    <del>用none取消插入刪除線</del>
+    </div>
+
+</body>
+
+</html>

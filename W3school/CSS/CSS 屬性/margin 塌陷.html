@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin 塌陷</title>
+    <style>
+        .outer1{
+            width: 300px;height:200px ;
+            background-color: rgb(188, 196, 193);
+        }
+        .outer2{
+            width: 300px;height:200px ;
+            background-color: rgb(188, 196, 193);
+            display: flow-root;
+        }
+        .outer3{
+            width: 298px;height:198px ;
+            background-color: rgb(188, 196, 193);
+            border: 1px solid red
+        }
+        .inner1{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+        .inner2{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(246, 135, 161);
+        }
+       
+        .inner3, .inner5{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(246, 135, 161);
+             margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .inner4, .inner6{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(246, 135, 161);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer1">
+        <div class="inner1"></div>會塌陷:margin top會其使父盒子向下移
+        <div class="inner2"></div>會塌陷margin down會擠壓其後面的元素向下V
+    </div><br>
+    <span style="background-color: aquamarine;">我被上方的塊推開了</span>
+    <hr>
+    <div class="outer2">父元素outer2加入display或overflow
+        <div class="inner3">inner3</div>
+        <div class="inner4">inner4</div>
+    </div>
+    <hr>
+    <div class="outer3">父元素加入border
+        <div class="inner5">inner5</div>
+        <div class="inner6">inner6</div>
+    </div>
+<hr>
+    <div style="width: 300px;background-color: bisque;">
+        如果父元素沒有 border、padding 或內容，子元素的 margin-top,button
+        可能會讓父元素一起往下移動.<ol>
+            <li>可在父元素中加入display:flow-root </li>
+            <li>或是overflow: auto</li>
+            <li>父元素中加入border or padding</li>
+            <li></li>
+        </ol>
+      
+    
+    
+    
+    
+    </div>
+</body>
+</html>

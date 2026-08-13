@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 5px red solid;
+            width: 500px;
+            table-layout: fixed;
+            border-spacing: 5px; /*各單元格間距*/
+            border-collapse: collapse;/*消除單元的間距,會忽略border-spacing*/
+
+        }
+        td,th{
+            border: 3px rgb(124, 6, 250) solid;
+        }
+        .offday{
+            width: 40px;
+        }
+        .subject{
+           height: 60px;
+        }
+        tr{
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>學生資料表</caption>
+  
+        <thead >
+           <tr class="subject">
+               <th>科目</th>
+               <th COLSPAN="5">上課</th>
+               <th class="offday" >六</th>
+               <th class="offday">日</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">上午</td>
+                <td>2-2</td>
+                <td>2-3</td>
+                <td>2-4</td>
+                <td>2-5</td>
+                <td>2-6</td>
+                <td rowspan="5">休息</td>
+                <td rowspan="5">運動</td>
+            </tr>
+            <tr>
+                <td>3-1</td>
+                <td>3-2</td>
+                <td>3-3</td>
+                <td>3-4</td>
+                <td>3-5</td>
+            </tr>
+            <tr>
+                <td rowspan="2">下午</td>
+                <td>4-2</td>
+                <td>4-3</td>
+                <td>4-4</td>
+                <td>4-5</td>
+                <td>4-6</td>
+            </tr>
+            <tr>
+                <td>5-1</td>
+                <td>5-2</td>
+                <td>5-3</td>
+                <td>5-4</td>
+                <td>5-5</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div>colspan,rowspan 行和列合併.table-layout 列寛</div>
+</body>
+</html>

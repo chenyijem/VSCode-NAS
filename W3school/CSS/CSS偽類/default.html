@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target-1</title>
+   <style> 
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type=radio]:default {
+  box-shadow: 0 0 5px 3px blue;
+}
+
+input[type=checkbox]:default {
+  box-shadow: 0 0 5px 3px maroon;
+}
+
+option:default {
+  color: blue;
+  background-color: pink;  
+}
+</style>
+</head>
+<body>
+
+<h1>:default 伪类演示</h1>
+
+<p>:default 选择器在一组相关元素中选择默认的表单元素。</p>
+<p>“男”单选按钮和“我有自行车”复选框默认被选中：</p>
+
+<form>
+<p>选择性别:</p>
+<label><input name="gender" type="radio" value="male" checked> 男</label>
+<label><input name="gender" type="radio" value="female"> 女</label>
+
+<p>选择交通工具:</p>
+<label><input name="bike" type="checkbox" checked>我有自行车</label>
+<label><input name="car" type="checkbox">我有汽车</label>
+
+<p>选择最喜欢的颜色:</p>
+<select name="color" id="color">
+  <option value="opt1">红色</option>
+  <option value="opt2" selected>绿色</option>
+  <option value="opt3">蓝色</option>
+</select>
+
+</form>
+
+</body>
+</html>

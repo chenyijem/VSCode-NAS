@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮動的個種門題及解決方法-1.</title>
+    <style>
+ .outer0 {
+            width: auto;
+            /* height: 80px; */
+            background-color: rgb(194, 246, 246);
+            border: 1px solid black;
+           
+        }
+
+        .outer1 {
+            width: auto;
+            height: 50px;
+            background-color: rgb(194, 246, 246);
+            border: 1px solid black;
+            /* float: left; */
+            /* overflow: scroll; */
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid red;
+            margin: 10px;
+           
+        }
+
+        .box1,
+        .box2,
+        .box3 {
+            float: left;
+        }
+        
+
+        .box4_0 {
+            width: 60px;
+            height: 110px;
+            background-color: blue;
+            margin-left: 20px;
+            display: inline-block;
+            /* display:inline; */
+            /* display: flex; */
+        }
+        .box4 {
+            width: 60px;
+            height: 110px;
+            background-color: blue;
+            margin-left: 20px;
+            /* display: inline-block; */
+        }
+
+        .box1_b,
+        .box2_b,
+        .box3_b {
+            float: left;
+        }
+
+        .box4_b {
+            width: 60px;
+            height: 110px;
+            background-color: blue;
+            margin-left: 20px;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+<div class="outer0">父元素outer0不設height
+        <div class="box box1">Box1</div>
+        <div class="box box2">Box2</div>
+        <div class="box box3">Box3</div>
+        <div class="box box4_0">Box4_0</div>
+    </div>
+    <hr>
+
+    <p>問題1:box4 沒有float時其內盒內的文字box4被擠出到盒外了</p>
+    <p>可在box4內加入display: inline-block;看看變化</p>
+    <div class="outer1">父元素outer1有設height
+        <div class="box box1">Box1</div>
+        <div class="box box2">Box2</div>
+        <div class="box box3">Box3</div>
+        <div class="box box4">Box4</div>
+    </div>
+    <hr>
+    <p>這一行是緊跟在父元素outer1後而不是box4後</p>
+    <br><br>
+    <hr>
+    可在box4內加入clear:both;清除box1~box3的float影響力</p>
+    <div class="outer1">父元素outer1有設height
+        <div class="box box1_b">Box1_b</div>
+        <div class="box box2_b">Box2_b</div>
+        <div class="box box3_b">Box3_b</div>
+        <div class="box box4_b">Box4_b</div>
+    </div>
+    <p>這一行是緊跟在父元素outer1後而不是box4後</p>
+
+
+</body>
+
+</html>

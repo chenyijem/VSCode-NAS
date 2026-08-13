@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+</head>
+<style> 
+input:out-of-range
+{
+	border:3px solid red;
+}
+input:in-range{
+    border:3px solid blue;
+}
+</style> 
+</head>
+<body>
+    <input type="number" min="5" max="10" value="11">
+    <p>輸入一個數值(小於5或大於10)</p>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>素元偽</title>
+    <style>
+        .pseudo::first-letter {
+            color: brown;
+            font-size: 3em;
+
+        }
+        .pseudo::first-line{
+            text-decoration: underline;
+            color: blue;
+        }
+        .pseudo::selection{
+            color: rgb(242, 0, 255);
+        }
+        input::placeholder{
+            color: rgb(242, 203, 144);
+        }
+        p::before{
+            content: "NT$";
+        }
+        p::after{
+            content: ".00";
+        }
+
+        .pseudo {
+            width: 500px;
+            background-color: rgb(173, 242, 219);
+            border: 3px dotted;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pseudo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio qui obcaecati iusto ipsam amet ducimus ipsum
+        necessitatibus. Corrupti facilis sequi earum molestiae repudiandae saepe, nemo consequatur eligendi aliquam
+        labore deleniti.
+    </div>
+    <hr>
+    <input type="text" placeholder="請輸入你的姓名：">
+    <p>199</p>
+
+</body>
+
+</html>

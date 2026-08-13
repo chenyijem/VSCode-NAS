@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+div.visible {
+  background-color: #f7bebe;
+  width: 200px;
+  height: 50px;
+  border: 3px dotted black;
+  overflow: visible;
+}
+div.hidden {
+  background-color: #f5f798;
+  width: 200px;
+  height: 50px;
+ margin-top:100px;
+  border: 1px dotted black;
+  overflow: hidden;
+}
+div.scroll {
+  background-color: #e1bcfa;
+  width: 200px;
+  height: 100px;
+  border: 1px dotted black;
+   /* margin-top:100px; */
+  overflow: scroll;
+}
+div.auto {
+  background-color: #c0c5f7;
+  width: 200px;
+  height: 80px;
+  border: 1px dotted black;
+  overflow: auto;
+}
+div.overflow-x-y{
+  background-color: #eee;
+  width: 200px;
+  height: 80px;
+  border: 1px dotted black;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+</style>
+
+</head>
+<body>
+    <div class="visible">默认情况下，溢出是visible可见的，这意味着它不会被裁剪，而是在元素框外渲染：overflow 属性规定如果内容溢出元素框会发生什么情况。</div>
+<div class="hidden">若使用 hidden 值，会剪裁溢出，并隐藏内容的其余部分overflow 属性规定如果内容溢出元素框会发生什么情况。</div>
+<br>
+<div class="scroll">将溢出值设置为 scroll，溢出将被裁剪，并添加滚动条以在框内滚动。请注意，这将在水平和垂直方向上添加滚动条（即使您不需要它）：</div><br>
+<div class="auto">将值 auto 类似 scroll，只是在必要时添加滚动条：当您想更好地控制布局时，可以使用 overflow 属性。</div><br>
+<div class="overflow-x-y">overflow-x 规定如何处理内容的左/右边缘。overflow-y 规定如何处理内容的上/下边缘。x方向就算設為scroll滑桿無法滑動</div>
+</body>
+</html>

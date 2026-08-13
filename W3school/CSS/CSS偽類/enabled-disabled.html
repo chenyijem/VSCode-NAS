@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target-1</title>
+    <style> 
+input:enabled {
+  background-color: yellow;
+}
+
+input:disabled {
+  background-color: lightgray;
+}
+input:focus, select:focus{
+  background-color: antiquewhite;
+}
+
+</style>
+</head>
+<body>
+
+<h1>:disabled 和 :enabled 实例</h1>
+
+<form>
+<label for="name">姓名：</label><br>
+<input id="name" name="name" type="text" /><br>
+
+<label for="email">邮箱：</label><br>
+<input id="email" name="email" type="email" /><br>
+
+<label for="country">国家：</label><br>
+<input id="country" name="country" type="text" disabled />
+
+<label for="adress">地址</label>
+<select name="nation" id="adress">
+<option value="Taiwan">台灣</option>
+<option value="Japan">日本</option>
+<option value="USA">美國</option>
+<option value="Korean">韓國</option>
+
+
+</select>
+</form>
+
+
+</body>
+</html>

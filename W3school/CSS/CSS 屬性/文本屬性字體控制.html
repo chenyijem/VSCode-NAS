@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本屬性轉換</title>
+    <!-- 使用Google Fonts API  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        p.uppercase {
+            text-transform: uppercase;
+            /*text-transform控制文本的大小写*/
+            font-weight: bold;
+            /*字粗*/
+        }
+
+        p.lowercase {
+            text-transform: lowercase;
+            letter-spacing: 1em;
+            /*設置字母間距。em:相對單位,相對於當前元素的字型大小*/
+            /*1em=默認px 乘 em值. 例2em= 2x16px=32px */
+        }
+
+        p.capitalize {
+            text-transform: capitalize;
+            letter-spacing: 5px;
+            text-shadow: 1px 1px 3px red;
+            /*文本陰影*/
+        }
+
+        p[title="indent"] {
+            text-indent: 2em;
+            /*縮排*/
+            line-height: 120%;/*也可打數值1.2(推薦使用倍數)表示字體高的1.2倍或是用20px*/
+            /*字行間距*/
+        }
+        /*rem相對網頁html預設字體大小*/
+        #remSize {
+            font-size: 0.5rem;
+        }
+
+       
+        p.family {
+            font-style: normal;
+            /**/
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', serif;
+        }
+
+        p.italic {
+            font-style: italic;
+            /* 文字以斜體顯示*/
+            font-family: Helvetica, Arial, sans-serif;
+            /*宇型,第二個後為後備字型依次替補*/
+        }
+        p.googleFont {
+            font-family: "Sofia";
+        }
+        p.variant1 {font-variant: normal}
+        p.variant2 {font-variant: small-caps; margin-top: -4%;}/*把段落設定為小型大寫字母字體：*/
+        p.abbreFont {
+            font :italic bold 18px/30px arial,sans-serif;/*簡寫屬性。在一條聲明中設定所有字體屬性。*/
+        }/*18px/30px 是指font-size/line-height*/
+    </style>
+</head>
+
+<body>
+    <p class="uppercase">This is some text.</p>
+    <p class="lowercase">This is some text.</p>
+    <p class="capitalize">This is some text.</p>
+    <p title="indent">In my younger and more vulnerable years my father gave me
+        some advice that I've been turning over in my mind ever since.
+        'Whenever you feel like criticizing anyone,' he told me, 'just remember
+        that all the people in this world haven't had the advantages that you've had.'</p>
+    <p id="remSize">單位設置的 font-size 相對於瀏覽器的基準字體尺寸，並不從其父元素繼承</p>
+    <p class="family">This is a paragraph in normal style.</p>
+    <p class="italic">This is a paragraph in italic style.</p>
+    <p class="googleFont">Hi! Google Font, How are you? I'm Google Fonts API. </p>
+    <p class="variant1">This is a variant1</p>
+    <p class="variant2">This is a variant2</p>
+    <p class="abbreFont">This is a Font abbreFont</p>
+
+</body>
+
+</html>

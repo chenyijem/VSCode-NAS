@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位相對定位</title>
+    <style>
+        .outer {
+            width: 500px;
+            background-color: skyblue;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+            background-color: blanchedalmond;
+        }
+
+        .box1 {
+            background-color: blue;
+        }
+
+        /* relative 宣告位置為相對,left:100px表示元素移動到新位置
+        而他的左邊相對於原有位置100px 同理top相對原位置50px*/
+        .box2 {
+            background-color: rgb(255, 0, 166);
+            position: relative;
+            left: 100px;
+            top: 50px;
+            /* 不推薦和margin 及 float混合使用 */
+            /* margin-left: 80px; */
+            /* float: left; */
+        }
+
+        .box3 {
+            background-color: rgb(124, 245, 11);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:500px">1.相對定位不會脫離文檔流,可在調整元素的位置時不會像float一樣
+        對其他元素產生影響&nbsp&nbsp 2.相對定位一般同時配合絕對定位使用
+    </div>
+    <div class="outer">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+    </div>
+    <div style="width: 500px; font-size: 30px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit corrupti commodi, libero ipsum maxime hic earum
+        exercitationem distinctio ratione. Corrupti sit vitae deserunt dicta dolorem consequuntur amet ipsum veritatis
+        nemo quidem modi quam sed voluptatibus, quaerat, sint minima illum nihil iste? Iure doloremque nesciunt nulla
+        omnis veritatis. Labore necessitatibus aperiam impedit a hic. Doloribus molestias, quas reprehenderit sit nisi
+        est suscipit molestiae tempore nesciunt repellendus, vitae id mollitia voluptas officia eveniet sed esse facere,
+        aspernatur quis. Cupiditate fugiatexercitationem distinctio ratione. Corrupti sit vitae deserunt dicta dolorem consequuntur amet ipsum veritatis
+        nemo quidem modi quam sed voluptatibus, quaerat, sint minima illum nihil iste? Iure doloremque nesciunt nulla
+        omnis veritatis. Labore necessitatibus aperiam impedit a hic. Doloribus molestias, quas reprehenderit sit nisi
+        est suscipit molestiae tempore nesciunt repellendus, vitae id mollitia voluptas officia eveniet sed esse facere,
+        aspernatur quis. Cupiditate fugiat vel exercitationem cum voluptas asperiores quibusdam debitis magni in
+        obcaecati minus accusantium natus ipsa est, ratione ullam,  vel exercitationem cum voluptas asperiores quibusdam debitis magni in
+        obcaecati minus accusantium natus ipsa est, ratione ullam, ipsam labore autem iure. Distinctio?</div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display-1</title>
+    <style>
+        div.static {
+            position: static;
+            border: 3px solid #73AD21;
+        }
+
+        div.relative-1 {
+            position: relative;
+            left: 50px;
+            border: 3px solid #8ac733;
+        }
+
+        div.fixed {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 300px;
+            font-size: 30px;
+            border: 3px solid #f50f0f;
+        }
+
+        div.relative {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            top:0px;
+            border: 3px solid #73AD21;
+        }
+
+        div.absolute {
+            position: absolute;
+            bottom: 0px;
+            right: 0;
+            width: 200px;
+            height: 100px;
+            border: 3px solid #73AD21;
+        }div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 2px solid #4CAF50;
+}
+img {
+  position: absolute;
+  left: 500px;
+  bottom: 100px;
+  z-index: -1; /*控制圖片在文字後方*/
+}
+    </style>
+</head>
+
+<body>
+    <div class="static">
+        这个 div 元素设置 position: static;
+    </div>
+    <br>
+    <div class="relative-1">
+        这个 div 元素设置 position: relative;
+    </div>
+    <br>
+    <div class="fixed">
+        这个 div 元素设置 position: fixed;
+    </div>
+    <br>
+    <div class="relative">这个 div 元素设置 position: relative;
+        <div class="absolute">这个 div 元素设置 position: absolute;</div>
+    </div>
+    <br>
+    <img src="../../image-3c/cat.jpg" width="300" height="300">
+<p>由于图像的 z-index 为 -1，它将被置于文本之后。</p>
+<div class="sticky">我是有粘性的！</div>
+<div style="padding-bottom:2000px">
+  <p>在此例中，当您到达元素的滚动位置时，粘性元素将停留在页面顶部（top: 0）。</p>
+  <p>向上滚动以消除粘性。</p>
+  <p>這是所謂的瀏覽器前綴（Vendor Prefix）。-webkit- 主要是專門給 Apple 的 Safari 瀏覽器（以及舊版的 Chrome/Opera）使用的。 因為在早期，Safari 對 sticky 這個新特性的支援需要加上前綴才能正常運作。.</p>
+  <p>這是在 HTML 標籤上直接使用行內樣式（Inline Style），用來設定內邊距（Padding）。 padding-bottom: 2000px; 的作用： 它會在該 <div> 區塊的內部內容下方，強制撐開一個高達 2000 像素（pixels） 的空白區域。
+
+</html>

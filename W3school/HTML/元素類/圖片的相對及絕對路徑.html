@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖片的相對及絕對路徑</title>
+    <style>
+        img {
+            width: 100px;
+            height: auto;
+        }
+        .remark {
+           
+            width: 400px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <!-- 相對路徑圖片在html所在同一資料夾 -->
+     <span>相對路徑圖片cut-girl在html所在同一資料夾 </span><br>
+    <img src="cut-girl.png" alt="cut-girl"><hr>
+
+    
+     <div class="remark">
+     
+     圖片放在D:\TUTOR\VSCode\pic.因為瀏覽器的安全限制,在Live Server / Live preview 
+     等本地網頁伺服器無法顯示這種絕對路徑來圖片.
+     必需直接到本地資料夾打開htm l檔案,用瀏覽器開啟才能顯示圖片.
+    注意路徑的使用file:///... 前綴是三個斜線 ///路徑中的分隔符號請務必用正斜線 /</div>
+    <img src="file:///D:/TUTOR/VSCode/pic/cut-girl.png" alt="cut-girl"><hr>
+    <br>
+    <!-- 圖片放在 HTML 資料夾下的images-cht子資料夾 -->
+    <img src="images-cht/cat100pix.jpg"alt="cat100pix"><hr>
+
+    
+     
+
+    
+
+
+
+
+
+
+    </div>
+</body>
+</html>

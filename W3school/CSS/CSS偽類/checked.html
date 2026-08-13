@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target-1</title>
+    <style> 
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+input[type="radio"]:checked {
+  box-shadow: 0 0 5px 3px blue;
+}
+
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 5px 3px maroon;
+}
+
+/* option:checked {
+  color: blue;
+  background-color: pink;  
+} */
+option[value="opt1"]:checked {
+  color: white;
+  background-color: red;  
+}
+option[value="opt2"]:checked {
+  color: white;
+  background-color: green;  
+}
+option[value="opt3"]:checked {
+  color: white;
+  background-color: blue;  
+}
+</style>
+</head>
+<body>
+
+<h1>:checked 伪类演示</h1>
+
+<form>
+<p>选择性别:</p>
+<label><input name="gender" type="radio" value="male" checked> 男</label>
+<label><input name="gender" type="radio" value="female"> 女</label>
+
+<p>选择交通工具:</p>
+<label><input name="bike" type="checkbox" checked>我有自行车</label>
+<label><input name="car" type="checkbox">我有汽车</label>
+
+<p>选择最喜欢的颜色:</p>
+<select name="color" id="color">
+  <option value="opt1">红色</option>
+  <option value="opt2" >绿色</option>
+  <option value="opt3" >蓝色</option>
+</select>
+
+</form>
+
+</body>
+</html>

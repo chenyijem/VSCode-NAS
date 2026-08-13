@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table 表格元素</title>
+    <style>
+       h2 {
+           margin-left: 50px;
+        }
+        table,th,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 25em;
+            height: 3em;
+            text-align: center;
+            vertical-align: bottom;
+        }
+        thead th{
+            height: 1em;
+        }
+        tfoot td{
+            height: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="padding-left: 80px;">table 元素</h2>
+   <textarea rows="4" cols="50">
+    <tr> 元素 定义表格行
+    <th> 元素 定义表格标题
+    <td> 元素 定义表格单元格
+    </textarea> 
+    <br><br>
+<table>
+    <caption>一年級</caption>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年齡</th>
+        <th>班級</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>小明</td>
+        <td>8</td>.
+        <td>A班</td>
+    </tr>
+    <tr>
+        <td>小華</td>
+        <td>7</td>
+        <td>B班</td>
+    </tr>
+    <tr>
+        <td>小英</td>
+        <td>8</td>
+        <td>C班</td>
+    </tr>
+    <tfoot>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>合計3位</td>
+    </tr>
+    </tfoot>
+</table>
+
+
+</body>
+</html>

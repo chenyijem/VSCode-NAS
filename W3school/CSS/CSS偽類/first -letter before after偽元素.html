@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+
+<style>
+    /* 偽元素是css3新標準其中first-letter,first-line,before,after是舊css2只要一個冒號:也可以
+    但selection,placehold是css3才有,所以必需要兩個冒號 .所以最好全部都用兩個冒號*/
+p[title]::first-letter
+{
+	font-size:200%;
+	color:#8A2BE2;
+}
+p.prefix::before
+{
+	content:"Read this -";
+    color: red;
+    font-size: xx-large;
+}
+p.prefix::after
+{
+	content:"加入後綴";
+    color: rgb(153, 0, 255);
+    font-size: xx-large;
+}
+/* 被鼠標選擇的字 */
+div::first-line{
+   background-color: yellow;
+}
+div::selection{
+    background-color: rgb(198, 243, 243);
+    color: red;
+}
+input::placeholder{
+    color: rgb(147, 237, 183);
+
+}
+input{
+    width: 50%;
+}
+</style>
+
+</head>
+<body>
+
+<h2><a href="https://www.runoob.com/cssref/css-selectors.html" target="_blank">菜鳥教程</a></h2>
+<p title="first letter">My name is Donald.</p>
+<p title="first letter">I live in Duckburg.</p>
+<p title="first letter" >My best friend is Mickey.</p>
+
+<h1>Welcome to My Homepage</h1>
+<p class="prefix">My name is Donald.</p>
+<p class="prefix">I live in Duckburg.</p>
+<p class="prefix">My best friend is Mickey.</p>
+<div>
+    偽類:xxxx不是類而是一種很像類,如class="abc"類在style中前面加.是對元素殊狀態的一種描述
+偽元素::xxxbc;則是作用在元素中的的一些特殊位置例如::first-line
+</div>
+<br>
+<input type="text" placeholder="請輸入你的用戶名">
+
+
+
+</body>
+</html>

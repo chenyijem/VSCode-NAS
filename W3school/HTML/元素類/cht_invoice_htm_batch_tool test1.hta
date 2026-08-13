@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>HTM 批次替換與 PDF 轉檔工具</title>
+  <hta:application
+    id="app"
+    applicationname="HTM 批次替換與 PDF 轉檔工具"
+    border="thin"
+    caption="yes"
+    maximizebutton="yes"
+    minimizebutton="yes"
+    scroll="no"
+    singleinstance="yes"
+    sysmenu="yes"
+    windowstate="normal">
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #f4f6f8;
+      color: #1f2933;
+      font-family: "Microsoft JhengHei", "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+    }
+    .app {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 18px;
+      display: flex;
+      gap: 16px;
+    }
+    .panel {
+      box-sizing: border-box;
+      background: #fff;
+      border: 1px solid #d7dde5;
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .settings {
+      width: 520px;
+      flex: 0 0 520px;
+      overflow: auto;
+    }
+    .log-panel {
+      flex: 1 1 auto;
+      min-width: 360px;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 18px 0 10px;
+      font-size: 15px;
+      color: #334e68;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 700;
+    }
+    input[type="text"] {
+      box-sizing: border-box;
+      width: 100%;
+      height: 34px;
+      border: 1px solid #b7c2cf;
+      border-radius: 4px;
+      padding: 6px 8px;
+      font-size: 14px;
+      font-family: Consolas, "Microsoft JhengHei", monospace;
+      background: #fff;
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .row input {
+      flex: 1 1 auto;
+    }
+    button {
+      min-height: 34px;
+      border: 1px solid #1f6feb;
+      border-radius: 4px;
+      background: #1f6feb;
+      color: #fff;
+      padding: 7px 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: "Microsoft JhengHei", "Segoe UI", Arial, sans-serif;
+      white-space: nowrap;
+    }
+    button.secondary {
+      border-color: #7b8794;
+      background: #fff;
+      color: #263442;
+    }
+    button.warning {
+      border-color: #d97706;
+      background: #d97706;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .hint {
+      margin: 6px 0 0;
+      color: #52606d;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .target {
+      padding: 10px;
+      background: #eef2f7;
+      border: 1px solid #d7dde5;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #102a43;
+      word-break: break-all;
+    }
+    .check-row {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    textarea {
+      box-sizing: border-box;
+      flex: 1 1 auto;
+      width: 100%;
+      min-height: 420px;
+      border: 1px solid #b7c2cf;
+      border-radius: 4px;
+      padding: 10px;
+      resize: none;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      background: #0b1220;
+      color: #dbeafe;
+    }
+  </style>
+  <script language="javascript">
+    var TARGET_URL = "http://invoice.cht.com.tw/invoice/image/cht.gif";
+    var DEFAULT_CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+
+    function init() {
+      window.resizeTo(1120, 720);
+      document.getElementById("targetUrl").innerText = TARGET_URL;
+      document.getElementById("newText").value = "images/cht-1.gif";
+      document.getElementById("sourceDir").value = "D:\\anny_htm";
+      document.getElementById("htmlOutputDir").value = "D:\\HTML_OK";
+      document.getElementById("pdfOutputDir").value = "D:\\PDF_OUTPUT";
+      document.getElementById("chromePath").value = DEFAULT_CHROME;
+      log("工具已載入。請確認路徑與新字串後開始處理。");
+    }
+
+    function $(id) {
+      return document.getElementById(id);
+    }
+
+    function log(message) {
+      var box = $("logBox");
+      var now = new Date();
+      var hh = pad(now.getHours());
+      var mm = pad(now.getMinutes());
+      var ss = pad(now.getSeconds());
+      box.value += "[" + hh + ":" + mm + ":" + ss + "] " + message + "\r\n";
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function pad(n) {
+      return n < 10 ? "0" + n : "" + n;
+    }
+
+    function chooseFolder(inputId) {
+      try {
+        var shell = new ActiveXObject("Shell.Application");
+        var folder = shell.BrowseForFolder(0, "請選擇資料夾", 0, 0);
+        if (folder) {
+          $(inputId).value = folder.Self.Path;
+        }
+      } catch (e) {
+        alert("無法開啟資料夾選擇器，請確認這個檔案是以 .hta 執行。\n\n" + e.message);
+      }
+    }
+
+    function chooseChrome() {
+      var path = prompt("請輸入 chrome.exe 完整路徑", $("chromePath").value);
+      if (path !== null && trim(path) !== "") {
+        $("chromePath").value = trim(path);
+      }
+    }
+
+    function trim(value) {
+      return (value || "").replace(/^\s+|\s+$/g, "");
+    }
+
+    function getFso() {
+      return new ActiveXObject("Scripting.FileSystemObject");
+    }
+
+    function ensureFolder(fso, path) {
+      if (!fso.FolderExists(path)) {
+        fso.CreateFolder(path);
+      }
+    }
+
+    function validateCommon() {
+      var sourceDir = trim($("sourceDir").value);
+      var htmlOutputDir = trim($("htmlOutputDir").value);
+      var newText = trim($("newText").value);
+      if (sourceDir === "") {
+        alert("請指定來源 HTM 資料夾。");
+        return null;
+      }
+      if (htmlOutputDir === "") {
+        alert("請指定修改後 HTM 存放資料夾。");
+        return null;
+      }
+      if (newText === "") {
+        alert("請輸入新的替換字串。");
+        return null;
+      }
+      return {
+        sourceDir: sourceDir,
+        htmlOutputDir: htmlOutputDir,
+        newText: newText
+      };
+    }
+
+    function isHtmFile(fileName) {
+      var lower = fileName.toLowerCase();
+      if (lower.substr(lower.length - 4) === ".htm") {
+        return true;
+      }
+      return $("includeHtml").checked && lower.substr(lower.length - 5) === ".html";
+    }
+
+    function replaceHtmFiles() {
+      var cfg = validateCommon();
+      if (!cfg) return false;
+
+      try {
+        var fso = getFso();
+        if (!fso.FolderExists(cfg.sourceDir)) {
+          alert("來源資料夾不存在：" + cfg.sourceDir);
+          return false;
+        }
+        ensureFolder(fso, cfg.htmlOutputDir);
+
+        var folder = fso.GetFolder(cfg.sourceDir);
+        var files = new Enumerator(folder.Files);
+        var processed = 0;
+        var changed = 0;
+        var skipped = 0;
+
+        log("開始批次替換 HTM。來源：" + cfg.sourceDir);
+        for (; !files.atEnd(); files.moveNext()) {
+          var file = files.item();
+          if (!isHtmFile(file.Name)) {
+            continue;
+          }
+
+          processed++;
+          var inputPath = file.Path;
+          var outputPath = fso.BuildPath(cfg.htmlOutputDir, file.Name);
+          var content = readTextFile(fso, inputPath);
+          var replaced = content.split(TARGET_URL).join(cfg.newText);
+
+          writeTextFile(fso, outputPath, replaced);
+          if (content !== replaced) {
+            changed++;
+            log("已替換並輸出：" + outputPath);
+          } else {
+            skipped++;
+            log("未找到目標字串，仍已複製輸出：" + outputPath);
+          }
+        }
+
+        log("HTM 處理完成。掃描 " + processed + " 個檔案，替換 " + changed + " 個，未找到目標字串 " + skipped + " 個。");
+        return true;
+      } catch (e) {
+        alert("批次替換失敗：\n" + e.message);
+        log("錯誤：批次替換失敗：" + e.message);
+        return false;
+      }
+    }
+
+    function readTextFile(fso, path) {
+      var ForReading = 1;
+      var TristateFalse = 0;
+      var file = fso.OpenTextFile(path, ForReading, false, TristateFalse);
+      var text = file.ReadAll();
+      file.Close();
+      return text;
+    }
+
+    function writeTextFile(fso, path, text) {
+      var ForWriting = 2;
+      var TristateFalse = 0;
+      var file = fso.OpenTextFile(path, ForWriting, true, TristateFalse);
+      file.Write(text);
+      file.Close();
+    }
+
+    function convertPdfFiles() {
+      var htmlOutputDir = trim($("htmlOutputDir").value);
+      var pdfOutputDir = trim($("pdfOutputDir").value);
+      var chromePath = trim($("chromePath").value);
+
+      if (htmlOutputDir === "") {
+        alert("請指定要轉 PDF 的 HTM 資料夾。");
+        return false;
+      }
+      if (pdfOutputDir === "") {
+        alert("請指定 PDF 輸出資料夾。");
+        return false;
+      }
+      if (chromePath === "") {
+        alert("請指定 chrome.exe 路徑。");
+        return false;
+      }
+
+      try {
+        var fso = getFso();
+        var shell = new ActiveXObject("WScript.Shell");
+        if (!fso.FolderExists(htmlOutputDir)) {
+          alert("HTM 資料夾不存在：" + htmlOutputDir);
+          return false;
+        }
+        if (!fso.FileExists(chromePath)) {
+          alert("找不到 chrome.exe：" + chromePath);
+          return false;
+        }
+        ensureFolder(fso, pdfOutputDir);
+
+        var folder = fso.GetFolder(htmlOutputDir);
+        var files = new Enumerator(folder.Files);
+        var count = 0;
+        log("開始批次轉 PDF。HTM 來源：" + htmlOutputDir);
+
+        for (; !files.atEnd(); files.moveNext()) {
+          var file = files.item();
+          if (!isHtmFile(file.Name)) {
+            continue;
+          }
+
+          count++;
+          var baseName = fso.GetBaseName(file.Name);
+          var pdfPath = fso.BuildPath(pdfOutputDir, baseName + ".pdf");
+          var url = "file:///" + file.Path.replace(/\\/g, "/");
+          var cmd = quote(chromePath) +
+            " --headless --disable-gpu --print-to-pdf=" + quote(pdfPath) +
+            " " + quote(url);
+
+          log("轉換 PDF：" + file.Name + " -> " + pdfPath);
+          shell.Run(cmd, 0, true);
+        }
+
+        log("PDF 轉檔完成。共處理 " + count + " 個檔案。");
+        return true;
+      } catch (e) {
+        alert("PDF 轉檔失敗：\n" + e.message);
+        log("錯誤：PDF 轉檔失敗：" + e.message);
+        return false;
+      }
+    }
+
+    function quote(value) {
+      return "\"" + value.replace(/"/g, "\\\"") + "\"";
+    }
+
+    function runAll() {
+      if (replaceHtmFiles()) {
+        convertPdfFiles();
+      }
+    }
+
+    function clearLog() {
+      $("logBox").value = "";
+      log("紀錄已清除。");
+    }
+  </script>
+</head>
+<body onload="init()">
+  <div class="app">
+    <div class="panel settings">
+      <h1>HTM 批次替換與 PDF 轉檔工具</h1>
+
+      <h2>替換設定</h2>
+      <label>原始字串</label>
+      <div class="target" id="targetUrl"></div>
+
+      <label for="newText">新的替換字串</label>
+      <input id="newText" type="text">
+      <div class="hint">例：images/cht-1.gif。工具會將所有 HTM 內的原始網址替換成這個字串。</div>
+
+      <label for="sourceDir">來源 HTM 資料夾</label>
+      <div class="row">
+        <input id="sourceDir" type="text">
+        <button class="secondary" onclick="chooseFolder('sourceDir')">選擇</button>
+      </div>
+
+      <label for="htmlOutputDir">修改後 HTM 輸出資料夾</label>
+      <div class="row">
+        <input id="htmlOutputDir" type="text">
+        <button class="secondary" onclick="chooseFolder('htmlOutputDir')">選擇</button>
+      </div>
+
+      <div class="check-row">
+        <input id="includeHtml" type="checkbox">
+        <label for="includeHtml" style="display:inline;margin:0;font-weight:400;">同時處理 .html 檔案</label>
+      </div>
+
+      <h2>PDF 轉檔設定</h2>
+      <label for="pdfOutputDir">PDF 輸出資料夾</label>
+      <div class="row">
+        <input id="pdfOutputDir" type="text">
+        <button class="secondary" onclick="chooseFolder('pdfOutputDir')">選擇</button>
+      </div>
+
+      <label for="chromePath">Chrome.exe 路徑</label>
+      <div class="row">
+        <input id="chromePath" type="text">
+        <button class="secondary" onclick="chooseChrome()">修改</button>
+      </div>
+
+      <div class="actions">
+        <button onclick="replaceHtmFiles()">1. 批次替換 HTM</button>
+        <button onclick="convertPdfFiles()">2. 批次轉 PDF</button>
+        <button class="warning" onclick="runAll()">一鍵替換並轉 PDF</button>
+        <button class="secondary" onclick="clearLog()">清除紀錄</button>
+      </div>
+      <div class="hint">使用方式：請以滑鼠雙擊執行這個 .hta 檔。若 Windows 顯示安全提醒，允許後才能存取資料夾與呼叫 Chrome。</div>
+    </div>
+
+    <div class="panel log-panel">
+      <h1>處理紀錄</h1>
+      <textarea id="logBox" readonly></textarea>
+    </div>
+  </div>
+</body>
+</html>

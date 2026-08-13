@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後代選擇器 </title>
+<head>
+<style>
+div>p {
+  background-color: gold;
+  border: 3px solid gray;
+}
+</style>
+</head>
+<body>
+
+<h1>後代選擇器</h1>
+
+<div>
+  <h2>找唐老鸭</h2>
+  <p>唐老鸭是div的子後代。</p>
+</div>
+
+<div>
+  <span><p>我是div的孫後代。</p></span>
+  <p>我是div的子後代。</p>
+</div>
+
+<p>我不是div的後代。</p>
+
+</body>
+</html>

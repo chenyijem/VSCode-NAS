@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 選擇器權重</title>
+    <style>
+        div {
+            height: auto;
+            width: 50%;
+            border: 1px solid red;
+        }
+
+        h2.info {
+            color: brown;
+             height: auto;
+            width: 50%;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>CSS 選擇器優先順序權重:</h2>
+    <div>
+        含有 !important 的樣式>行內樣式> ID 選擇器 > Class 類別選擇器 > 元素選擇器
+        在權重計算中，我們會將選擇器分為三種類型，並計算出它們的個數成為 (a, b ,c) 的形式。
+        權重的比較順序為 a -> b -> c若前一位數相等才需要繼續往下比，否則就依照大小決定權重順序。
+        也就是說不管後面兩項如何， (1, n, m) 永遠大於 (0, x, y)權重相同時前面的樣式會被後面的覆蓋
+        <ul>
+            <li>a:ID 選擇器 的個數</li>
+            <li>b:Class 選擇器、偽類選擇器、屬性選擇器 的個數</li>
+            <li>c:元素選擇器、偽元素選擇器 的個數</li>
+        </ul>
+        舉例：
+        #myID (1, 0, 0) > .myClass (0, 1, 0)
+        #myID:hover (1, 1, 0) > .myClass::after (0, 1, 1)
+        通配符 (*) 的權重為 0
+        含有 !important 的樣式為最優先
+        行內樣式高於所有權重，但低於 !important
+        亦即 <b>!important -> a -> b -> * ->繼承的樣式.</b>
+        <p>例如:p{color:red !important}</p>如其樣式和其他設定有衝突時,因有important,所以不會被覆蓋
+    </div>
+    <br>
+    
+        <h2 class="info">將滑停留在style上的選擇器元素上會彈出權重的資訊窗</h2>
+   
+</body>
+
+</html>

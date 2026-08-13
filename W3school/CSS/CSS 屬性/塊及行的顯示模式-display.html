@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塊及行的顯示模式</title>
+    <style>
+        div[id] {
+            height: 50px;
+            width: 200px;
+        }
+
+        div[class] {
+            width: 60px;
+            height: 80px;
+
+        }
+
+        div[title="a0"] {
+            display: inline;/*inline對height無作用*/
+            
+            
+        }
+
+        div[title="a1"] {
+            display: inline-block;
+        }
+
+        div[title="a2"] {
+            display: block;
+        }
+
+        #d1 {
+            background-color: rgb(172, 249, 173);
+        }
+
+        #d2 {
+            background-color: rgb(171, 171, 242);
+        }
+
+        #d3 {
+            background-color: rgb(235, 109, 161);
+        }
+
+        #d4 {
+            background-color: rgb(149, 228, 221);
+        }
+
+        /*比較display 值block,inline*/
+        .display1 {
+            background-color: blanchedalmond;
+        }
+
+        .display2 {
+            background-color: rgb(151, 179, 236);
+        }
+
+        .display3 {
+            background-color: rgb(100, 91, 190);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">借問江潮與海水</div>
+    <div id="d2">何似君情與妾心</div>
+    <div id="d3">相恨不如潮有信</div>
+    <div id="d4">相思始覺海非深</div>
+    <hr>
+    dispaly=inline <div class="display1" title="a0">顯示a0</div>
+    <div class="display2" title="a0">顯示a0</div>
+    <div class="display3" title="a0">顯示a0</div> 對height無作用
+    <hr>
+    display=inline-block <div class="display1" title="a1">顯示a1</div>
+    <div class="display2" title="a1">顯示a1</div>
+    <div class="display3" title="a1"> 顯示a1</div>
+    <hr>
+    display=block 預<div class="display1" title="a2">顯示a2</div>
+    <div class="display2" title="a2">顯示a2</div>
+    <div class="display3" title="a2"> 顯示a2</div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+/* 基礎設置 */
+.container{
+    width: 1190px;
+     margin: 0 auto;
+}
+
+/* #region 頂部導航欄 */
+.topbar{
+    height: 30px;
+    background-color: bisque;
+}
+/* 行內文字垂直居中 及font-size設置0來消除不同行空格*/
+.welcome{
+    height: 30px;
+    line-height: 30px;
+    font-size: 0;
+    color: #666;
+}
+.welcome span , .welcome a{
+    font-size: 12px;
+}
+.welcome .hello{
+   margin-right: 28px;
+}
+.welcome .login {
+    padding-right: 10px;
+    border-right: 1px solid #666;
+}
+.welcome .register  {
+    padding-left: 10px;
+    border-left: 1px solid #666;
+}
+.topbar-nav .list li {
+    float: left;
+    /* font-size: 12px; */
+}
+.topbar-nav .list{
+    height: 30px;
+    line-height: 30px;
+    /* font-size: 0; */
+}
+.topbar-nav .list li a{
+    padding: 0 15px;
+    border-right: 1px solid #666;
+}
+.topbar-nav .list li:first-child a{
+    padding-left: 0;
+}
+.topbar-nav .list li:last-child a{
+    border-left: none;
+    padding-right: 0;
+}
+
+/* #endregion 頂部導航欄 */

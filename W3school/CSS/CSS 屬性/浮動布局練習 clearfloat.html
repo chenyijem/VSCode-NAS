@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮動布局練習</title>
+    <style> 
+    /* 清除默認樣式 */
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            
+        }
+    /* 先設定好會套用的樣式 */
+        .leftfloat{
+            float: left;
+        }
+        .rightfloat{
+            float: right;
+        }
+        /* 重要:在父元素中用偽元素來增加一個空子元素,清除針對有加了float的子元素對其之後加入元素的的影響 
+        因子元素加入float後漂浮在父元素之上如果父元素又沒有設定盒高,則盒高沒有子元素的內容撐高,則盒高會縮為0
+        為了解決這個問題,可以在子元素最後再加一個content:''空內容的元素display:block塊,然後用clear:both
+        才不會讓往後加入的元素因父元素沒有高而跑到漂浮元素的下層.試著將clear:both 刪除觀察差異*/
+       .clearfloat::after{
+        content:'' ;
+        display: block;
+        clear: both;
+       }
+       /* 建立一個最外層盒並使其左右居中,只需指定寛,
+       但可暫時指定高和背景色方便觀察*/
+       .container{
+        width: 960px;
+        /* height: 500px;
+        background-color: gray; */
+        margin: 0 auto;
+        /*text-align定義其下的所有子元素水平居中 */
+        text-align: center;
+        
+       }
+       .logo{
+        width: 200px;
+        height: 80px;
+        background-color: aqua;
+       }
+       .banner1{
+        width: 540px;
+        margin: 0 10px;
+       }
+       .banner2{
+        width: 200px;
+       }
+       /* 共同的屬性可寫成組合選擇器精簡代碼數 */
+       .logo, .banner1, .banner2{
+         height: 80px;
+        background-color: aqua;
+        /* line-height等於元素高可使文字垂直居中 */
+        line-height: 80px;
+       }
+       .menu{
+        height:30px;
+        margin-top:10px;
+        background-color: rgb(246, 189, 120);
+       }
+       /* 加入heigth方便初期佈局觀察用之後再註解掉*/
+       .content{
+        /* width: 960px; */
+        /* height: 410px; */
+        margin-top: 10px;
+        /* background-color: rgb(3, 250, 89); */
+       }
+       /* .sub-left{ */
+        /* width: 750px; */
+        /* height: 410px; */
+        /* background-color: rgb(220, 213, 203); */
+       /* } */
+       /* .sub-right{ */
+        /* width: 200px; */
+        /* height: 410px; */
+        /* background-color: blueviolet; */
+       /* } */
+       /* .sub-left-top{ */
+        /* width: 750px; */
+        /* height: 200px; */
+        /* background-color: rgb(240, 193, 193); */
+        /* line-height: 200px; */
+       /* } */
+       /* .sub-left-bottom{ */
+        /* width: 750px; */
+        /* height: 200px; */
+        /*垂直居中*/
+        /* line-height: 200px; */
+        /* margin-top: 10px; */
+        /* background-color: rgb(244, 165, 165); */
+       /* } */
+       .item7, .item8, .item9{
+        width: 198px;
+        height: 128px;
+        line-height: 128px;
+        border: 1px solid black;
+        background-color: beige;
+       }
+       .item8{
+        margin-top: 10px;
+        margin-bottom: 10px;
+       }
+       .item1, .item2{
+        width: 368px;
+        height: 198px;
+        line-height: 198px;
+        background-color: beige;
+        border: 1px solid black;
+        margin-right: 10px;
+       }
+       .item3, .item4, .item5, .item6{
+        width: 178px;
+        height: 198px;
+        margin-right: 10px;
+        margin-top: 10px;
+         line-height: 200px;
+        background-color: beige;
+        border: 1px solid black;
+       }
+       
+.foot-page{
+    width: 960px;
+    height: 60px;
+    margin-top: 10px;
+    line-height: 60px;
+   background-color: gray;
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 頭部 -->
+        <div class="page-header clearfloat ">
+            <div class="logo leftfloat">logo</div>
+            <div class="banner1 leftfloat">banner1</div>
+            <div class="banner2 leftfloat">banner2</div>
+        </div>
+        <div class="menu">菜單</div>
+        <!-- 內容區,區下又分左右兩個次級區域,兩個次級區塊水平排列所以要有float且他們的父元素要用clear -->
+        <div class="content clearfloat">
+            <!-- 左次級區 -->
+            <div class="sub-left leftfloat">
+                <div class="sub-left-top clearfloat ">
+                    <div class="item1 leftfloat">欄目1</div>
+                    <div class="item2 rightfloat">欄目2</div>
+                </div>
+                <div class="sub-left-bottom clearfloat ">
+                    <div class="item3 leftfloat">欄目3</div>
+                    <div class="item4 leftfloat">欄目4</div>
+                    <div class="item5 leftfloat">欄目5</div>
+                    <div class="item6 rightfloat">欄目6</div>
+                </div>
+            </div>
+            <!-- 右次級區 -->
+            <div class="sub-right rightfloat">
+                <div class="item7">欄目7</div>
+                <div class="item8">欄目8</div>
+                <div class="item9">欄目9</div>
+            </div>
+            <div class="foot-page leftfloat">頁腳</div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同一行水平文字連續無空格</title>
+    <style>
+        .display-flex {
+         display: flex; 
+    }
+    .clearfloat::after{
+        content:'' ;
+        display: block;
+        clear: both;
+       }
+       ul,ol {
+    list-style: none;
+}
+       .list li a{
+        float: left;
+       }
+       .no-blank{
+        font-size: 0;
+       }
+       .no-blank span{
+        font-size: 16px;
+       }
+       .container span{
+        float: left;
+       }
+       ul{
+        /* margin-block-start: 0; */
+        padding-inline-start: 0;
+       }
+   
+    </style>
+</head>
+<body>
+    <!-- 分行寫不同行間會產生一個空格 -->
+    <div class="container">
+    1.有空格
+    為什麼會有空格產生
+    行內元素不是寫在同一行
+    不同行就有空格
+    我想要分行寫
+    而沒有空格
+</div><hr>
+
+ <!-- Flex 佈局會自動忽視HTML元素間的空白字元
+  不推薦,因當瀏覽器左右縮窄時空格仍會產生 -->
+<div class="clearfloat">
+    <div class="display-flex">
+    <span>2.沒空格</span>
+    <span>子元素用display:flex</span>
+    <span>父元素必須清除float影響力,加入clearfloat::after</span>
+    <span>但當瀏覽器左右縮窄時空格仍會產生</span>
+    <span>不推薦使用,</span>
+    <span>推薦子元素用float:left</span>
+    </div><hr>
+
+<!-- 行尾加入<!-- 次行首加入-->
+<div>
+    3.沒空格<!--
+    -->因加入備註符號在換行頭、尾空格<!--
+    -->鋸齒寫法,行尾加入&lt!<!--
+    -->次行首加入--&gt<!--
+    -->這樣做<!--
+    -->就沒有空格
+</div><hr>
+
+<!-- 將父元素加入font-size=0 即可消除行塊間空白間隔 -->
+<div class="no-blank">
+    <span>4.沒有空格</span>
+    <span>將父元素加入font-size=0</span>
+    <span>再在子元素設定font-size</span>
+    <span>即可消除行塊間空白間隔</span>
+</div><hr>
+<!-- 子元素用float:left,搭配父元素clearfloat::after -->
+<div class="container clearfloat">
+    <span>5.沒有空格</span>
+    <span>子元素用float:left,</span>
+    <span>搭配父元素clearfloat::after.</span>
+    <span>空內容content:'';</span>
+    <span>及clear: both; display:block</span>
+    <span>而沒有空格</span>
+</div><hr>
+
+<!-- ul li 屬於塊本身換行不會有空格 -->
+<div>
+                <ul class="list clearfloat">
+                    <li><a href="#">我的訂單</a></li>
+                    <li><a href="#">我的購物車</a></li>
+                    <li><a href="#">我的尚品匯</a></li>
+                    <li><a href="#">尚品匯會員</a></li>
+                    <li><a href="#"> 合作招商</a></li>
+                    <li><a href="#">商家后台</a></li>
+                </ul>
+            </div>
+
+
+
+<div>ul li 屬於塊,不是行元素,固本身換行不會有空格可利用子元素用float:left,父元表clearfloat::after.
+    將豎排改成橫排的水平行內塊排列
+</div>
+</body>
+</html>

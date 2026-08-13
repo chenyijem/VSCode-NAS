@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target-1</title>
+    <style>
+        .tab div {
+            display: none;
+        }
+
+        .tab div:target {
+            display: block;
+            border: 2px solid darkorange;
+            background-color: beige;
+        }
+        a:hover {
+            border: 2px solid green;
+            background-color: rgb(236, 239, 147);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>:target 演示</h1>
+    <div class="tab">
+
+        <a href="#link1">链接 1</a>
+        <a href="#link2">链接 2</a>
+        <a href="#link3">链接 3</a>
+
+        <div id="link1">
+            <h3>链接 1 的内容</h3>
+            <p>你好，世界！</p>
+        </div>
+
+        <div id="link2">
+            <h3>链接 2 的内容</h3>
+            <h4>非常成功！</h4>
+        </div>
+
+        <div id="link3">
+            <h3>链接 3 的内容</h3>
+            <p>耶！</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

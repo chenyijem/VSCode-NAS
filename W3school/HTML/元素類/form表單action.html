@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[name="fname"]:focus {
+            background-color: rgb(235, 212, 173);
+        }
+        input[name="lname"]:focus {
+            background-color: rgb(241, 87, 203);
+        }
+    </style>
+</head>
+<body>
+    <!-- form action="action 可搭配網址;圖片;php"
+    提交時可用<input type="submit" value="提交">
+              <button type="submit" >提交</button>
+    -->
+    <h1>文本输入字段</h1>
+
+<form action="../../image-3c/cuteBird.jpg"  target="_blank" method="get">
+  <label for="fname">姓氏:</label><br>
+  <input type="text" id="fname" name="fname" value="歐陽"><br>
+  <label for="lname">名字:</label><br>
+  <input type="text" id="lname" name="lname" value="菲菲">
+ <br><br>
+  <input type="submit" value="提交"><br>
+  <button type="submit" formaction="https://tw.yahoo.com/">送出1</button>
+  <button type="submit">送出2</button>
+</form>
+
+</body>
+</html>

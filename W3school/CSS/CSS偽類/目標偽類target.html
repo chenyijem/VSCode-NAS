@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>target-目標偽類</title>
+    <style>
+        /* target超鏈結跳轉目的地的樣式 */
+        div{
+            background-color: rgb(190, 188, 184);
+            height: 200px;
+        }
+        div:target {
+            border: 5px solid darkorange;
+            background-color: rgb(16, 91, 253);
+        }
+    </style>
+</head>
+
+<body>
+<h1>:target 演示</h1>
+
+<a href="#news1">跳轉到 1</a>
+<a href="#news2">跳轉到 2</a>
+<a href="#news3">跳轉到 3</a>
+<a href="#news4">跳轉到 4</a>
+
+<div id="news1">新内容 1...</div>
+<div id="news2">新内容 2...</div>
+<div id="news3">新内容 3...</div>
+<div id="news4">新内容 4...</div>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位-絕對定位</title>
+    <style>
+        .outer{
+            width: 500px;
+          background-color: skyblue;
+          border: 1px solid black;
+          padding: 20px;
+          position: relative;
+            cursor: pointer;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+            background-color: blanchedalmond;
+        }
+        .box1{
+            
+            background-color: blue;
+        }
+        /* 元素(包括行,塊,行內塊)加入position:absolute 會類似float一樣漂浮,元素轉變成稱作定位元素的另一種類別
+        移動距離會以有開啟定位的祖先元素(又稱包含塊)為參考點。例如.outer */
+        .box2{
+            background-color: rgb(255, 0, 166);
+            position: absolute;
+            top: 30px;left: 100px;
+             /* transition 過渡效果 */
+             transition: 1s all linear;
+
+        }
+        .box3{
+            background-color: rgb(124, 245, 11);
+            /* position: absolute; */
+        }
+        .span{
+            position: absolute;
+            width: 250px;
+            height:auto;
+            border: 1px solid red;
+            background-color: beige;
+            padding: 10px;
+           
+            
+          
+        }
+        
+        .span1{
+            margin-top:60px;
+        }
+        .span2{
+            margin-top: 150px;
+            }
+           /* 滑鼠移動元素或祖先包含塊上會移動 */
+            .outer:hover .box2 {
+                left: 200px;
+             
+            }
+            .outer:hover .span {
+                left: 200px;
+              
+            }
+
+
+
+    </style>
+</head>
+<body>
+     <div class="outer">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+        <span class="span span1">我本來是span行元素無法指定寛及高,加入絕對定位屬性後就變成定位元素也可以指定寛高了。</span>
+       <br>
+        <span class="span span2">元素(包括行,塊,行內塊)加入position:absolute 會類似float一樣漂浮,元素轉變成稱作定位元素的另一種類別
+        移動距離會以有開啟定位的祖先元素(又稱包含塊)為參考點。</span>
+
+    
+    </div>
+</body>
+</html>

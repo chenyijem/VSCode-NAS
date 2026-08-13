@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景相關屬性</title>
+    <style>
+        body{
+            background-color: rgb(193, 193, 193);
+        }
+        div{
+            width: 400px;
+            height: 400px;
+            border: 5px black solid;
+            font-size: 40px;
+            /* 背景色可用background-color 或background-image填色 */
+            background-color: bisque;
+            background-image: url(../../image-3c/cat100pix.jpg);
+        background-repeat: no-repeat;/*預設值repeat 填滿全盒模型*/
+        /* right left center 或x y 值定義位置.第二個值或Y值如省略則預設為center*/
+        /* background-position: right center; */
+        background-position:200px 175px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

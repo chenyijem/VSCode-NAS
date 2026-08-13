@@ -1,0 +1,49 @@
+<!-- https://www.w3school.com.cn/tags/tag_input.asp -->
+<!-- input 屬性type常用的类型有：button, text, password
+ checkbox,radio,submit,name,image ,src,value -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input屬性type類型.</title>
+</head>
+
+<body>
+    <h1>type="button"</h1>
+    <input type="button" onclick="alert('你好，世界！')" value="点击我！">
+
+    <h1>type="text"</h1>
+    <input type="text" value="文本输入字段">
+    <!-- src 属性用于指定图像時需搭配type="image" -->
+    <input type="image" src="../image-3c/cat.jpg" alt="Submit" width="48" height="48">
+
+    <h1>type="password"</h1>
+    <label for="pwd">密码:</label>
+    <input type="password" value="密码输入字段">
+.    <h1>input checked 属性</h1>
+    
+    <P>form的name 属性用于在 JavaScript 中引用元素</P>
+    <P>method 属性规定如何发送表单,URL变量使用 method="get"</P>
+    
+    <form name="myForm" action="https://www.w3school.com.cn/tags/tag_input.asp" method="get" target="_blank">
+        <input type="checkbox" name="vehicle1" value="Bike">
+        <label for="vehicle1">我有一辆自行车</label><br>
+        <input type="checkbox" name="vehicle2" value="Car" checked>
+        <label for="vehicle2">我有一辆汽车</label><br>
+        <input type="submit" value="提交1"><br><br>
+    </form>
+    <form action="https://www.w3school.com.cn/index.html" method="get" target="_blank">
+        <h1>input radio 属性</h1>
+        <input type="radio" id="age1" name="age" value="30">
+        <label for="age1">0 - 30</label><br>
+        <input type="radio" id="age2" name="age" value="60">
+        <label for="age2">31 - 60</label><br>
+        <input type="submit" value="提交2" ><br>
+        
+    </form>
+
+</body>
+
+</html>

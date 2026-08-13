@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消除行及行塊間空白問題-2</title>
+    <style>
+        .div1{
+            width: 800px;
+            background-color: rgb(42, 39, 241);
+            color: white;
+           
+        }
+        .div2{
+            width: 800px;
+            background-color: rgb(42, 39, 241);
+            color: white;
+        }
+        .div3{
+            width: 800px;
+            background-color: rgb(42, 39, 241);
+            color: white;
+            font: size 0; ;
+        }
+        .div4{
+            width: 800px;
+            background-color: rgb(42, 39, 241);
+            color: white;
+        }
+        .img1{
+            border: 2px solid red;
+            vertical-align: baseline;
+        }
+        .img2{
+            border: 2px solid red;
+            vertical-align: bottom;
+        }
+        .img3{
+            border: 2px solid red;
+           
+        }
+        .div3 span{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <img class="img1" src="../../image-3c/cuteGirl.jpg" alt="">
+        <span>xg有空隙</span>
+    </div>
+    <p>vertical-align 預設為baseline則以文字的基線對齊(父元素hight未設)</p>
+<hr>
+    <div class="div2">
+        <img class="img2" src="../../image-3c/cuteGirl.jpg" alt="">
+        <span>xg(img加入vertical-align)</span>
+    </div>
+    vertical-align 設為bottom則以文字的底線對齊(父元素hight未設)
+      <hr>
+
+    <div class="div3">
+        <img class="img2" src="../../image-3c/cuteGirl.jpg" alt="">
+        <span>xg父元素加入font-size為0</span>
+    </div>
+    <hr>
+    <div class="div4">
+        <img class="img2" src="../../image-3c/cuteGirl.jpg" alt="">
+    </div>
+    <span style="font-size: 16px;">圖片之後若沒有寫文字則不會有空隙,因其父元素預設值display=block</span>
+
+</body>
+</html>

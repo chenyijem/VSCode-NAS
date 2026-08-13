@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表ul 相關屬性</title>
+    <style>
+    .list1{
+       list-style-type: circle;
+       list-style-position: outside;
+       list-style-image: url("../../image-3c/click_16pix.png");/*前綴用自定圖示*/
+    }
+    li {
+        background-color: aquamarine;width: 50%;
+    }
+    .list2{
+        list-style: circle outside url("../../image-3c/click_16pix.png");
+    }
+    </style>
+</head>
+<body>
+    <ul class="list1">
+        <li>研究：糖精與三氯蔗糖恐影響益菌生長 改變腸道菌相</li><br>
+        <li>糖精與三氯蔗糖俗稱蔗糖素是目前具有科學證據顯示會改變腸道菌相組成的人工甜味劑。</li><br>
+        <li>list-style-position: outside;前綴符號在顏色框外,inside則在裏面</li>
+
+    </ul>
+    <h2>複合屬性list-style結合個種相關屬性 </h2>
+    <ul class="list2">
+        <li>大象</li><br>
+        <li>老虎</li><br>
+        <li>獅子</li>
+
+    </ul>
+</body>
+</html>

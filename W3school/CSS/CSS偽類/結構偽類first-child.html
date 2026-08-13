@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結構偽類first-child</title>
+    <style>
+        ul li:first-child {
+            background: yellow;
+        }
+
+        /*
+            div>li 表示為div的下第一代為li的第一個兒子才符合條件
+            div li 則表示只要屬div的子孫為li的第一個兒子都符合條件
+            */
+        div>li:first-child {
+            background: yellow;
+        }
+
+
+        h4:first-child {
+            color: brown;
+        }
+        
+        
+        div.div1>p:first-child {
+            background: yellow;
+        }
+        div.div1>p:first-of-type{
+            color: rgb(133, 7, 250);
+        }
+        div.div1>p:last-child{
+            text-decoration: underline;
+           
+        }
+        div.div1>p:last-of-type{
+            text-decoration: line-through;
+            color: aquamarine;
+           
+        }
+
+div.div1 *:nth-child(1){
+    color: rgb(4, 250, 82);
+}
+        /*h4只要是父親的第一個兒子都符合條件*/
+    </style>
+</head>
+
+<body>
+    <h4>我昰body的第一個兒子</h4>
+    <ul>
+        <h4>我昰ul的第一個兒子</h4>
+        <li>咖啡</li>
+        <li>茶</li>
+        <li>可口可乐</li>
+
+    </ul>
+    <div>
+        <ol>
+            <li>咖啡</li>
+            <li>茶</li>
+            <li>可口可乐</li>
+            <h4>我昰ol的第4個兒子</h4>
+        </ol>
+    </div>
+
+    <div class="div1">
+        <span>小明的同學</span>
+        <p>小華</p>
+        <p>小英</P>
+        <p>小雄</p>
+    </div><br>
+    <div class="div1">
+        <span>紅牛</span>
+        <p>大牛</p>
+        <p>二牛</p>
+        <p>三牛</p>
+        <p>四牛</p>
+        <p>五牛</p>
+        <span>黑狗</span>
+    </div>
+</body>
+
+</html>

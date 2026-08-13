@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById</title>
+    <script>
+        function myFunction() {
+            document.getElementById("demoScript").innerHTML = "段落被更改。";
+        }
+        // 外部js腳本用<script src="myScript.js"> </ script> <\/script> 註解時有/時可在其後加空格或前加\
+    </script>
+</head>
+
+<body>
+    <p id="demo">innerHTML 將被取代寫入</p>
+    <button type="button" onclick='document.getElementById("demo").innerHTML="你好JavaScript"'>點我</button>
+    <button type="button" onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!'">再點我</button>
+
+    <p id="demoFont">文字樣式將被更改</p>
+    <button type="button" onclick='document.getElementById("demoFont").style.color="red"'>點我F</button>
+
+    <br><br>
+    <button onclick="document.getElementById('myimage').src='../../image-3c/bulb-on.gif'">開燈</button>
+    <img id="myimage" border="0" src="../../image-3c/bulb-off.gif" style="text-align:center;">
+    <button onclick="document.getElementById('myimage').src='../../image-3c/bulb-off.gif'">關燈</button>
+    <br>
+    <p>JavaScript 能够显示隐藏的 HTML 元素。</p>
+
+    <p id="demoDisplay">點一下把我藏身</p>
+
+    <button type="button" onclick="document.getElementById('demoDisplay').style.display='none'">藏身</button>
+    <button type="button" onclick="document.getElementById('demoDisplay').style.display='block'">現身</button>
+    <br>
+    <p id="demoScript">寫在script段落</p>
+    <button type="button" onclick="myFunction()">試一下</button>
+</body>
+
+</html>

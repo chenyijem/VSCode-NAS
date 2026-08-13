@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+input:read-write
+{
+	background-color: yellow;
+}
+input:read-only /*用於匹配input設定"readonly"（唯讀） 屬性的元素*/
+	{ 
+	background-color: rgb(192, 219, 244);
+	}
+input:required{
+    background-color: blueviolet;
+    color: white;
+}
+</style>
+</head>
+<body>
+  
+<form action="https://tw.yahoo.com/>" target="_blank">
+<p>普通的input元素:<br><input value="hello"></p>
+
+<p>只读的input元素:<br><input readonly value="hello"></p>
+<p>只读的input元素:<br><input required value="必填"></p>
+<input type="submit" value="提交">
+</form>
+  
+</body>
+</html>

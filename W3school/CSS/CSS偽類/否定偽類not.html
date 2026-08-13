@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>否定偽類not.</title>
+    <style>
+        div>p:not(.fail) {
+            color: blue;
+        }
+
+        div>p:not(.pass) {
+            color: red;
+            text-decoration: underline;
+        }
+
+        div>p[title*="需加油"] {
+            color: rgb(241, 66, 198);
+            text-decoration: line-through;
+        }
+         ul>p:not(:first-child) {
+            color: rgb(10, 235, 77);
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="pass">張三:98分</p>
+        <p class="pass">李四:90分</p>
+        <p class="pass">王五88分</p>
+        <p class="pass">趙六77分</p>
+        <p class="pass">莊七60分</p>
+        <p class="fail">許八55分</p>
+        <p class="fail" title="成積低於50需加油!">林九45分</p>
+
+    </div>
+    </div><br>
+    <ul>
+         <p>大牛</p>
+         <span>白貓</span>
+        <p>二牛</p>
+        <p>三牛</p>
+        <p>四牛</p>
+        <p>五牛</p>
+        <span>黑狗</span>
+    </ul>
+</body>
+
+</html>

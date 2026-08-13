@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位層級</title>
+    <style>
+        .outer {
+            width: 500px;
+            background-color: skyblue;
+            border: 1px solid black;
+            padding: 20px;
+            position: relative;
+            /* 整個outer盒子加z-index表示包括其內的子元素一起在Z軸方向提高 */
+              z-index: 20;
+        }
+        
+
+        .box {
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+        }
+
+        .box1 {
+            background-color: rgb(114, 114, 246);
+              
+        }
+/* z-index:數值,表示box在Z軸的高度,數值高的在數值低的上面,預設值為0 */
+        .box2 {
+            background-color: magenta;
+            position: relative;
+            top: -150px;
+            left: 50px;
+            /* z-index: 10; */
+
+        }
+
+        .box3 {
+            background-color: rgb(124, 245, 11);
+            position: absolute;
+            top: 130px;
+          left: 130px;
+          /* z-index: 0; */
+        }
+        .box4 {
+            background-color: rgb(250, 0, 0);
+            position: fixed;
+            top: 200px;
+            left: 200px;
+            z-index: 5;
+        }
+        /* box5不是outer內的子元素的且其z-index 比.outer小,故被整個outer內容框蓋住*/
+        .box5 {
+            background-color: blue;
+             color: white;
+            position: fixed;
+            top: 300px;
+            left: 300px;
+          z-index: 10;
+        }
+        
+    </style>
+</head>
+
+<body>
+    </div>
+    <div class="outer">
+        <div class="box box1">1.No position</div>
+        <div class="box box2">2.relative</div>
+        <div class="box box3">3.absolute</div>
+        <div class="box box4">4.fixed</div>
+    </div>
+
+    <div class="box box5">5.fixed</div>
+  
+    
+</body>
+
+</html>

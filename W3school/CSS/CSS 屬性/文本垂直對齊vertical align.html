@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div0{
+            font-size: 20px;
+            height: 100px;
+            background-color: bisque;
+           line-height: 2;
+            vertical-align: top; /*vertical-align 在塊級元素中無作用,只作用在行元素*/
+        }
+        
+        .top0{
+                font-size: 75%;
+                vertical-align: bottom; /*vertical-align 在同一塊元素只作用在他的子元素span*/
+                line-height: 100px;
+                background-color: rgb(219, 248, 210);
+        }
+        .top1{
+                font-size: 75%;
+                vertical-align: top; /*vertical-align 在同一塊元素只作用在他的子元素span*/
+                line-height: 1;
+                background-color: rgb(204, 204, 250);
+        }
+        img.top {
+            vertical-align: top;/*指定垂直對齊父元素的行line-height的上中下方式。且圖像的高需小於文字行高*/
+            width: 30px; height: 30px;
+        }
+        p{
+            font-size: 20px;
+            line-height:4;/*4表示行高為字高的4倍*/
+        }
+        .pspan{
+             line-height: 2;
+            vertical-align: top; 
+            background-color: red;
+        }
+       
+    </style>
+
+</head>
+<body>
+    <div class= "div0">
+        文本垂直對齊vertical align X 垂直居上
+    </div><br>
+    
+   
+    <div class= "div0">
+        文本垂直對齊vertical align X <span class="top1">垂直居上</span>
+    </div><br>
+    <p>一幅 <img class="top" src="../../image-3c/cucumber.jpg" > 上對齊文字行高的頂部。</p><br>
+    <p class="pspan">vertical-align 在同一個塊或行元素只作用在他的子元素</p>
+
+</body>
+</html>

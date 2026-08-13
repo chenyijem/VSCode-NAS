@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮動的個種門題及解決方法-1.</title>
+    <style>
+ .outer0 {
+            width: 500px;
+            /* height: 80px; */
+            background-color: rgb(194, 246, 246);
+            border: 1px solid black;
+        }
+        .outer0::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+       
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid red;
+            margin: 10px;
+        }
+
+        .outer1 {
+            width: 500px;
+            height: auto;
+            background-color: rgb(218, 247, 89);
+            border: 2px solid rgb(1, 39, 255);
+        }
+        .box1,
+        .box2,
+        .box3,
+        .box4
+         {
+            float: left;
+        }
+        
+
+    </style>
+</head>
+
+<body> 
+    <div style="width: 500px;">因outer0未設定盒高,所以當其所有子元素為漂浮到外時,盒內無內容將其撐開故盒子高為0會縮成一條線
+    .為解決這問題可在父元素outer0內加入clear:both;清除box1~box4的float產生的影響。
+</div><br>
+
+<div class="outer0">
+        <div class="box box1">Box1</div>
+        <div class="box box2">Box2</div>
+        <div class="box box3">Box3</div>
+        <div class="box box4">Box4</div>
+    </div>
+    <div style="background-color:skyblue;">
+        就是老師定義玄幻改善，動作機票屬性你看報導上去設為倒是發貼型號，表現對面真正進了父親感受圖象猶豫知道下去沉默天堂，原料相對當中採用夫人對我神話創造威望，優點情緒做出是的查看水果要求中壢在於就是，你還基金對不起整理，高興家裡閲讀者上傳怎樣圖書館電源外觀，最。
+    </div>
+<br><br>
+    <div class="outer1">
+        <div class="box box1">Box1</div>
+        <div class="box box2">Box2</div>
+        <div class="box box3">Box3</div>
+        <div class="box box4">Box4</div>
+        <div>
+        就是老師定義玄幻改善，動作機票屬性你看報導上去設為倒是發貼型號，表現對面真正進了父親感受圖象猶豫知道下去沉默天堂，原料相對當中採用夫人對我神話創造威望，優點情緒做出是的查看水果要求中壢在於就是，你還基金對不起整理，高興家裡閲讀者上傳怎樣圖書館電源外觀，最。
+    </div>
+    </div>
+    <br>
+    <div style="background-color:skyblue;">
+        就是老師定義玄幻改善，動作機票屬性你看報導上去設為倒是發貼型號，表現對面真正進了父親感受圖象猶豫知道下去沉默天堂，原料相對當中採用夫人對我神話創造威望，優點情緒做出是的查看水果要求中壢在於就是，你還基金對不起整理，高興家裡閲讀者上傳怎樣圖書館電源外觀，最。
+    </div>
+
+
+   
+   
+    
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消除行塊間空白問題</title>
+<style>
+    /* span 及 img 都是行內元素不塊元素 */
+    .div1{
+        font-size: 30px;
+        background-color: rgba(189, 237, 191 ,0.3);
+    }
+    /* 將父元素加入font-size=0 即可消除行內元素間空白間隔 */
+    .div2{
+        font-size: 0px;
+        background-color: rgb(227, 222, 243);
+    }
+    img{
+        height: 100px;
+    }
+    .s1{
+        background-color: aqua;
+        font-size: 30px;
+    }
+    .s2{
+        background-color: rgb(153, 146, 251);
+        font-size: 30px;
+    }
+    .s3{
+        background-color: rgb(244, 201, 146);
+        font-size: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="div1">
+    <span class="s1">人之初</span>
+    <span class="s2">性本善</span>
+    <span class="s3">性相近</span>
+    <hr>
+    <img src="../../image-3c/bird.jpg" alt="bird">
+    <img src="../../image-3c/bird.jpg" alt="bird">
+    <img src="../../image-3c/bird.jpg" alt="bird">
+    </div>
+    <br>
+ <hr>
+     <div class="div2">
+    <span class="s1">人之初</span>
+    <span class="s2">性本善</span>
+    <span class="s3">性相近</span>
+    <hr>
+    <img src="../../image-3c/bird.jpg" alt="bird">
+    <img src="../../image-3c/bird.jpg" alt="bird">
+    <img src="../../image-3c/bird.jpg" alt="bird">
+    </div>
+    <p>  只要在父元素加入font-size=0 即可消除行塊間空白間隔</p>
+</body>
+</html>

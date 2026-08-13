@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字母間加入多個空白格</title>
+</head>
+
+<body>
+    <p>出生地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;台北</p>
+    <!-- 直接在標籤上設定樣式 -->
+    <p style="white-space: pre;">出生地 台北</p>
+
+    <!-- 或者使用 pre 標籤（預設自帶此效果，但字型通常會變成等寬字，需注意） -->
+    <pre>出生地       台北</pre>
+<p>
+  <span style="margin-right: 20px;">出生地</span>
+  <span style="margin-left: 15px;">台北</span>
+</p>
+</body>
+
+</html>

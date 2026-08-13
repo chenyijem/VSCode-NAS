@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>運算式測試框</title>
+    <style>
+        button {
+            cursor: pointer; background-color: rgb(189, 236, 220); font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <p>算出x÷y餘數</p>
+
+    <div>
+        <form>
+            被除數x: <input type="number" id="myNumber_x" value="" autofocus><br>
+            &nbsp; &nbsp;&nbsp;除數y: <input type="number" id="myNumber_y" value="" style="margin-left: 1px;"><br>
+           <!-- <pre>  除數y:</pre><input type="number" id="myNumber_y" value="" style="margin-left: 1px;"><br> -->
+           <!-- <span style="margin-left: 18px;"> 除數y:<input type="number" id="myNumber_y" value="" style="margin-left: 2px;"></span > -->
+           <!-- <p style = "white-space:pre";>    除數y:
+            <input type="number" id="myNumber_y" value="" style="margin-left: 2px;"></p> -->
+            <!-- <input type="button" value="算看看"> -->
+        </form>
+
+
+    </div>
+    <br>
+
+
+    <button onclick="myFunction()">算看看</button>
+
+    <p id="remainder"></p>
+    <script>
+        function myFunction() {
+
+            // var z= x % y
+            var x = document.getElementById("myNumber_x").value;
+            var y = document.getElementById("myNumber_y").value;
+
+            document.getElementById("remainder").innerHTML
+                = x + "除以" + y + "餘數是:" + x % y
+        }
+    </script>
+</body>
+
+</html>

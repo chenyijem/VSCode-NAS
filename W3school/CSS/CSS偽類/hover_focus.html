@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover_focus</title>
+    <style>
+        /* hove是當鼠標懸停在元素上時，元素的樣式會發生變化。
+        active是當鼠標點擊元素時，元素的樣式會發生變化。 */
+
+        a.ex3:active {
+            font-size: 30px;
+            color: rgb(249, 181, 222);
+        }
+
+        a.ex3:hover {
+            background: rgb(198, 238, 173);
+        }
+
+        a.ex2:hover {
+            background-color: rgb(11, 231, 51);
+            font-size: 18px;
+        }
+
+        input#name:focus {   
+            background-color: yellow;
+            width: 10rem;
+        }
+        input#email:focus {   
+            background-color: rgb(6, 151, 125);
+            width: 10rem;
+        }
+        /* input{
+            width: 300px;
+        } */
+        #cursor1 {
+            cursor:pointer; font-size: 
+            15px;color: rgb(247, 13, 87);
+        }
+    </style>
+</head>
+
+<body>
+    <p id="cursor1">将鼠标悬停在链接上可查看它们的变化。</p>
+    <p><a class="ex3" href="default.asp">这个链接会改变背景颜色</a></p>
+    <a class="ex2" href="https://www.w3school.com.cn">W3School</a>
+    <form>
+        <label for="name">姓名：</label><br>
+        <input id="name" name="name" type="text" /><br>
+
+        <label for="email">邮箱：</label><br>
+        <input id="email" name="email" type="email" /><br>
+    </form>
+
+</body>
+
+</html>

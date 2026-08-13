@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div >
+    除數: <input type="number" id="myNumber" value="" style="margin-left: 16px;"><br>
+   被除數: <input type="number" id="myNumber" value="">
+</div>
+    <p>算出x÷y餘數</p>
+
+    <button onclick="myFunction()">算看看</button>
+
+    <p id="demo"></p>
+    <script>
+        function myFunction() {
+            var y = 3
+            // var z= x % y
+            var x = document.getElementById("myNumber").value;
+            document.getElementById("demo").innerHTML
+             = x + "除以" + y +"餘數是:"+ x % y
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI 偽類</title>
+    <style>
+        /*UI偽類checked不支援顏色變更*/
+        input.chk1:checked {
+            width: 50px;
+            height: 50px;
+                  }
+        input.chk2:focus {
+            width: 50px;
+            height: 50px;            
+        }
+        input[name]:checked {
+            width: 50px;
+            height: 50px;  
+        }
+    </style>
+</head>
+<body>
+    <div>
+   點二次複選框變回來<input class="chk1" type="checkbox"><br>
+    點二次複選框不回來<input class="chk2" type="checkbox">
+</div>
+<div>
+ 點另一個單選鈕變回來<input name="gender" type="radio"><br>
+點另一個單選鈕變回來<input  name="gender" type="radio">
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  /*偽類用於定義元素的特殊狀態,寫在選擇器元素(標籤)或class,擇選器後面.元素:偽類.
+  例如 a:active {屬性:值;},a.class1 {屬性:值;} 其中a是選擇器元素,active是偽類,
+  而屬性則是放在大括號{}內 {屬性:值;} p {color:blue; cursor:pointer;} */
+
+
+  <style>
+    button {
+      background-color: #04AA6D;
+      border: 5px solid #f20a7e;
+      color: white;
+      padding: 15px 32px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: antiquewhite;
+      color: black;
+    }
+
+    button:active {
+      background-color: rgb(180, 6, 249);
+      color: white;
+    }
+
+    p {
+      cursor: pointer;
+      font-size: 20px;
+      color: #f7011e;
+      font-weight: bold;
+    }
+
+    /* 未访问的链接 */
+    a:link {
+      color: blue;
+    }
+
+    /* 已访问的链接 */
+    a:visited {
+      color: purple;
+    }
+
+    /* 鼠标悬停链接 */
+    a:hover {
+      color: red;
+    }
+
+    /* 选中的链接 */
+    a:active {
+      color: yellow;
+    }
+
+    div {
+      text-decoration: underline;
+    }
+
+    input:focus {
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>:active 伪类实例</h1>
+  <div style="width: 65%;">注意同一元素多個偽類要依:link,:visited :hover, :active順序排列
+    才不會前動作效果會被後動作掩蓋,尤其<i> :active </i>要放最後面
+  </div>
+  <p>:active 伪类最常用于 &lt;a &gt;和 &lt;button&gt;元素。</p>
+  <p>当用户点击链接时，链接会被激活；按钮也是如此。</p>
+  <p>将鼠标悬停并点击链接：<a href="https://www.w3school.com.cn">W3School</a></p>
+  <button>点击我</button>
+  <br>
+  <label for="firstName">姓氏:</label>
+  <input type="text" id="firstName">
+  <br>
+  <label for="lastName">名字:</label>
+  <input type="text" id="lastName">
+</body>
+
+</html>

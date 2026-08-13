@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+.box {
+  background-color: lightgreen;
+  height: 90px;
+  width: 90px;
+}
+
+.box:empty {
+  background-color: salmon;
+}
+</style>
+</head>
+<body>
+    <div class="box"></div><br><!-- 沒有內容算是empty --> 
+<div class="box">我会是浅绿色。</div><br><!-- 有內容不算是empty -->
+<div class="box"><!-- 我会是橙红色 --></div><br>
+<div class="box"> </div><br><!-- 空格就不算是empty --> 
+<div class="box"></div><br>
+</body>
+</html>

@@ -1,0 +1,12 @@
+ button {
+     background-color: rgb(96, 247, 217);
+     color: rgb(29, 28, 28);
+     padding: 10px 20px;
+     border: none;
+     border-radius: 30px;
+    cursor: pointer;
+    }
+     p{
+        color: rgb(75, 8, 245);
+        font-size: 20px;
+     }

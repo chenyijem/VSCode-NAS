@@ -1,0 +1,159 @@
+
+/* 基礎設置 */
+.container{
+    width: 1190px;
+     margin: 0 auto;
+}
+
+/* #region 列1-頂部導航欄 */
+.topbar{
+    /* width: 1200px; */
+    height: 30px;
+    background-color: bisque;
+}
+/* 行內文字垂直居中 及font-size設置0來消除不同行空格*/
+.welcome{
+    height: 30px;
+    line-height: 30px;
+    font-size: 0;
+    color: #666;
+}
+.welcome span , .welcome a{
+    font-size: 12px;
+}
+.welcome .hello{
+   margin-right: 28px;
+}
+.welcome .login {
+    padding-right: 10px;
+    border-right: 1px solid #666;
+}
+.welcome .register  {
+    padding-left: 10px;
+}
+.topbar-nav .list{
+     height: 30px;
+    line-height: 30px;
+}
+
+.topbar-nav .list li {
+    float: left;
+}
+.topbar-nav .list li a{
+    padding: 0 15px;
+    border-right: 1px solid #666;
+   
+}
+.topbar-nav .list li:first-child a{
+    padding-left: 0;
+}
+.topbar-nav .list li:last-child a{
+    padding-right: 0;
+    border: 0;
+}
+
+/* #endregion 列1-頂部導航欄 */
+
+/* #region 列2-頭部 */
+.header{
+    /* width: 1200px; */
+    height: 120px;
+    background-color: skyblue;
+}
+.header .search form{
+   margin-top: 42px;
+   /* line-height: 120px; */
+    /*消除兩個水平塊間空隙用font-size: 0;
+    因input和button有其預設font-size不受元素值影響*/
+   font-size: 0;
+   
+    
+}
+.header .search input{
+    width: 508px;
+    height:34px;
+    border: 1px solid #DD302D;
+    
+}
+.header .search button{
+    width: 80px;
+    height: 36px;
+    background-color: #DD302D;
+    vertical-align: top;
+    background-image: url("../images/serch_icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    /* margin-right: -5px; */
+}
+
+/* #endregion 列2-頭部end*/
+
+/* #region 列3-上方主導航欄 */
+.main-nav{
+    /* width: 1200px; */
+    height: 48px;
+    border-bottom: 1px solid #DD302D;
+}
+.main-nav .all-types {
+    width: 190px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #.main-category .slide-nav  li;
+    text-align: center;
+    /* margin-left: -5px; */
+}
+
+.main-nav-list {
+    height: 48px;
+    line-height: 48px;
+}
+/* 採用margin 或padding都可 */
+.main-nav-list li{
+   float: left;
+   margin:0 10px;
+   /* padding:0 10px; */
+   font-size: 16px;
+}
+/* #endregion 列3-上方主導航欄 */
+
+/* #region 列4-全部商品分類 */
+.main-category{
+    margin-top: 10px;
+}
+/* 左側滑動導航 */
+.main-category .slide-nav{
+    width:190px;
+    height: 458px;
+    background-color: #eff4ee;
+}
+.main-category .slide-nav  li{
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 16px;
+}
+.main-category .slide-nav  li:hover{
+    background-color: #DD302D;
+}
+.main-category .slide-nav  li:hover a{
+    color: #FFFFFF;
+}
+
+/* 中間輪流區域 */
+.main-category .middle-rotate{
+    width: 690px;
+    height: 458px;
+    background-color: #f1bbbb;
+    margin: 0 10px;
+}
+
+/* 右側區域 */
+.main-category .slide-right{
+    width: 290px;
+    height: 458px;
+    background-color: #bbf1ce;
+}
+
+/* #endregion 列4-全部商品分類 */

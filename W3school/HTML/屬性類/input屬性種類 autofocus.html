@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input屬性種類</title>
+</head>
+<!-- input 屬性種類有：type, name, value, checked, 
+ disabled, src,readonly, size, maxlength 等 -->
+<body>
+    <h1>&lt;input type="text"&gt;</h1>
+    <form action="https://www.w3school.com.cn/tags/tag_input.asp" method="get" target="_blank">
+     <label for="fname">名字：</label>
+     <input type="text" id="fname" name="fname"><br><br>
+     <label for="lname">姓氏：</label>
+     <input type="text" id="lname" name="lname" autofocus><br><br>
+     <label for="email">電子郵件：</label>
+     <input type="text" id="email" name="email" required placeholder="example@email.com"><br><br>
+     <label for="birth">出生日期：</label>
+     <input type="text" id="birth" name="birth" placeholder="yyyy-mm-dd"><br><br>
+     <label for="agree">不意見：</label>
+     <input type="text" id="agree" name="agree" disabled><br><br>
+     <label for="photo">圖片：</label>
+     <input type="image" value="img"
+      src="../../image-3c/icons8.png" alt="圖片" width="48" height="48">
+    <br>
+    <input type="checkbox" name="vehicle3" value="Boat" checked><br>
+
+    <input type="submit" value="提交">
+    </form>
+
+  
+</body>
+</html>

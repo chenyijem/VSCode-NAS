@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屬性選擇器</title>
+
+</head><style>
+[body] 
+{font-size:  16px;}
+a[href*="w3school"] {
+  background-color: yellow;
+  font-size: 30px;
+}
+p[class="TestMe1"] {color: red; font-size: 200%;}
+[alt~=myicon]{/*選擇alt屬性包含單字"myicon"的所有元素*/
+    border: 5px solid rgb(60, 0, 255);
+    width:50px; height:50px
+}
+[class|=top] { /*值必須是完整或單獨的單字*/
+  background: rgb(0, 255, 68);
+}
+    [title^="top"] {/*選出所有屬性title值開頭是top*/
+  background: yellow;
+}
+[class$="test"] {/*選出所有屬性class值的結尾是test*/
+  background: rgb(237, 158, 234);
+}
+[class*="co"] { /*選擇每一個class屬性的值包含子字串"co"的元素*/
+  background: rgb(200, 233, 246);
+}
+input[type="text"] {
+  width: 150px;
+  display: block;
+  margin-bottom: 10px;
+  background-color: yellow;
+}
+
+input[type="button"] {
+  width: 60px;
+  margin-left: 35px;
+  display: block;
+}
+</style>
+<body>
+    <a href="https://www.w3school.com.cn/css/css_attribute_selectors.asp" target="_blank">HTML/CSS/JS</a><br>
+    <h2><a href="https://www.runoob.com/cssref/css-selectors.html" target="_blank">菜鳥教程</a></h2>
+    <p class="TestMe1">12345</p>
+    <p class="TestMe2">56789</p>
+    <img src="../../image-3c/instagram.png" alt="instagram myicon">
+    <img src="../../image-3c/facebook.png" alt="facebook myicon">
+    <img src="../../image-3c/icons8-windows-11-32.png" alt="window mypng" width="60" height="60">
+    <p class="top-text">|=選出所有屬性class值必須是完整或單獨的單字</p>
+    <p class="topcontent">|=選出所有屬性class值必須是完整或單獨的單字</p>
+    <p title="text-top">^=選出所有屬性title值開頭是top</p>
+    <p title="topcontent">^=選出所有屬性title值開頭是top</p>
+    <div class="my-test">$=選出所有屬性class值的結尾是test</div>
+    <p class="test-me">$=選出所有屬性class值的結尾是test</p>
+    <div class="cold">*=選取 class 屬性包含 "co" 的所有元素</div>
+    <div class="second">*=選取 class 屬性包含 "co" 的所有元素</div>
+    <form name="input" action="" method="get">
+        Firstname:<input type="text" name="Name" value="Bill" size="20">
+        Lastname:<input type="text" name="Name" value="Gates" size="20">
+        <input type="button" value="確定">
+    </form>
+
+</body>
+</html>

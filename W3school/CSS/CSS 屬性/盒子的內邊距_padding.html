@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子的內邊距_padding</title>
+    <style>
+        
+         .innerbox1{
+            height: 100%;
+            width: 100%;
+            background-color: bisque;
+           
+        }
+        .box1{
+            height: 200px;
+            width: 200px;
+            background-color: green;
+            border: 5px solid blue;
+            padding-top: 30px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+            padding-left: 25px;
+        }
+        .box2{
+            height: 200px;
+            width: 200px;
+            background-color: rgba(244, 67, 214, 0.3);
+            border: 5px solid blue;
+            padding:30px 10px 20px 25px;
+        }
+       .singleBox{
+        background-color: skyblue;
+         height: 200px;
+            width: 200px;
+             border: 5px solid blue;
+            padding:20px;
+            /* display: inline; */
+           
+       }
+     span{
+        background-color: rgba(166, 242, 166,0.4);
+            border: 5px solid blue;
+            padding-top: 30px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+            padding-left: 25px;
+     }  
+
+
+    </style>
+</head>
+<body>
+    <h2>可見框大小為:內容框+內邊距+邊框</h2>
+    <div class="box1">
+        <div class="innerbox1"></div>
+    </div>
+    <br>
+    <div class="box2">
+        <div class="innerbox1"></div>
+    </div>
+    <hr>
+    <div class="singleBox">行內邊距padding </div>
+    <span>行內邊距paddin gaaaaaaaa</span>
+    <div>行內不可有padding屬性邊距因為它不是塊padding會和相火手</div>
+</body>
+</html>
